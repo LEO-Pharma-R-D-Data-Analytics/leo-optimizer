@@ -1,0 +1,33 @@
+name: Feature
+description: Suggest a new feature
+labels: ["enhancement"]
+assignees:
+  - octocat
+body:
+  - type: textarea
+    id: pain
+    attributes:
+      label: Pain
+      placeholder: What is the pain point?
+      value: |
+        I'm frustrated when **...**. Because, **...**
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature
+    attributes:
+      label: Feature
+      placeholder: Describe the feature.
+      value: |
+        I'd like to have a feature that **...**. Having this feature, I **...**.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative
+      placeholder: Describe alternatives that you've considered
+      value: |
+        At the moment, I **...**.

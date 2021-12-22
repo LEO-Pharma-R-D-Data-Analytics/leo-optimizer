@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  app:
+    image: python:3.7-slim
+    container_name: leo-optimizer-app
+    hostname: leo-optimizer-app
+    working_dir: /src
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/src
+    command: /src/scripts/start.sh

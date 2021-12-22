@@ -1,0 +1,12 @@
+name: Miscellaneous
+description: Ask a question; Make a request; Get the info;
+assignees:
+  - octocat
+body:
+  - type: textarea
+    id: miscellaneous
+    attributes:
+      label: Question/Request/Clarification
+      placeholder: A clear and concise description of what this question/request is all about. If the issue is a question, then please use `question` label.
+    validations:
+      required: true

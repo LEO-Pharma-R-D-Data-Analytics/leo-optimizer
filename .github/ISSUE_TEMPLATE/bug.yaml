@@ -1,0 +1,55 @@
+# https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+name: Bug
+description: Report a bug
+labels: ["bug", "invalid"]
+assignees:
+  - octocat
+body:
+  - type: textarea
+    id: bug
+    attributes:
+      label: The bug
+      placeholder: Tell us what happened? A clear and concise description of what the bug is.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduce
+      description: Description of steps to reproduce the bug.
+      placeholder:
+      value: |
+        1. Step one
+        1. Step two
+        1. Step n
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behaviour
+    attributes:
+      label: Expected behaviour
+      placeholder: What should be the outcome of this behaviour? A clear and concise description of what you expected to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      placeholder: Copy and paste any relevant log output here.
+      render: shell
+
+  - type: dropdown
+    id: python
+    attributes:
+      label: Python
+      multiple: false
+      options:
+        - 3.6
+        - 3.7
+        - 3.8
+        - 3.9
+    validations:
+      required: true

@@ -1,0 +1,9 @@
+bandit==1.7.1
+coverage==6.2
+django-debug-toolbar==3.2.4
+Django==3.2.10
+graphene-django==3.0.0b1
+graphene==3.0.0b1
+names==0.3
+stringcase==1.2.0
+tox==3.24.4

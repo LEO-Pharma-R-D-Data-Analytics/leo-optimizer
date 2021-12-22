@@ -1,0 +1,63 @@
+name: Continuous Integration
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    branches: [ main ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - python: 3.7
+            django: 2.2
+            toxenv: py37-django22
+          - python: 3.7
+            django: 3.0
+            toxenv: py37-django30
+          - python: 3.8
+            django: 2.2
+            toxenv: py38-django22
+          - python: 3.8
+            django: 3.0
+            toxenv: py38-django30
+          - python: 3.9
+            django: 2.2
+            toxenv: py39-django22
+          - python: 3.9
+            django: 3.0
+            toxenv: py39-django30
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        name: Set up Python ${{ matrix.python }} ${{ matrix.django }}
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install pip packages
+        run: pip install --upgrade pip codecov poetry tox
+      - name: "Run tox - testenv: ${{ matrix.toxenv }}"
+        env:
+          DJANGO: ${{ matrix.django }}
+          TOXENV: ${{ matrix.toxenv }}
+        run: tox
+
+  security:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - python: 3.9
+            toxenv: security
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        name: Set up Python ${{ matrix.python }}
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install pip packages
+        run: pip install --upgrade pip codecov poetry tox
+      - name: "Run tox - testenv: ${{ matrix.toxenv }}"
+        env:
+          TOXENV: ${{ matrix.toxenv }}
+        run: tox
