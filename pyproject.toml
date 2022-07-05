@@ -34,7 +34,7 @@ stringcase = "^1.2.0"
 [tool.poetry.dev-dependencies]
 bandit = "^1.7.1"
 coverage = "^6.2"
-Django = "^3.2.10"
+Django = "^3.2.14"
 django-debug-toolbar = "^3.2.4"
 graphene = "3.0.0b1"
 graphene-django = "^3.0.0b1"
