@@ -20,4 +20,4 @@ Concise summary of the change(s) that this PR introduces.
 
 ### Reviewer
 <!-- This needs to be verified by a reviewer -->
-- [ ] PR doesn't contain GPLv2 licensed code.
+- [ ] PR doesn't contain GPL v2/v3 licensed code.
